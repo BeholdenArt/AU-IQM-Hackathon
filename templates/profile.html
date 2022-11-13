@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="/img/favicon-1.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/modal-styles.css' %}">
+    <title>Profile</title>
+    <script src="https://kit.fontawesome.com/d9a0aff236.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <button type="submit" class="btn" onclick="openPopup()">Profile</button>
+        <div class="popup" id="popup">
+            <i class="fa-solid fa-user fa-3x"></i>
+            <h5>{{user.username}}</h5>
+            <h5>{{user.email}}</h5>
+            <h5>{{user.billing_plan}}</h5>
+            <h5>{{user.duration}}</h5>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script>
+</body>
+</html>

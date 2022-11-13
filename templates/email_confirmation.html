@@ -1,0 +1,8 @@
+{% autoescape off %}
+
+Welcome to News App Login
+Hello {{name}}
+Please confirm you email by clicking on the link.
+Confirmation Link: http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

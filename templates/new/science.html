@@ -1,0 +1,429 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NewsApp: A News Aggregation Solution</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    
+    <link rel="icon" href="{% static 'login/img/logo.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fancybox.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+
+  </head>
+  <body>
+  
+
+  <div class="site-wrap"  style="padding-left: 30px; padding-top: 30px;">
+
+  <div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <header class="header-bar d-flex d-lg-block align-items-center" data-aos="fade-left">
+    <div class="site-logo">
+      <a href="/">NewsApp</a>
+    </div>
+    
+    <div class="d-inline-block d-xl-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+    
+    <div class="main-menu">
+      <ul class="js-clone-nav">
+        <li><a href='../news'>Home</a></li>
+        <li><a href="/news/sports">Sports</a></li>
+        <li><a href='/news/health'>Health</a></li>
+        <li  class="active"><a href="/news/science">Science</a></li>
+        <li><a href="/news/business">Business</a></li>
+        <li><a href="/news/technology">Technology</a></li>
+        <li><a href='/news/entertainment'>Entertainment</a></li>
+      </ul>
+      
+      <br />
+      <br />
+      <br />
+      <div>
+        <hr style="height:2px;color:white;background-color:white;"> 
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <ul class="js-clone-nav">
+        
+              <br class='wtf'/>
+              <br class='wtf'/>
+              <br class='wtf'/>
+        
+              <br class='wtf'/>
+              <br class='wtf'/>
+              <br class='wtf'/>
+        
+              <br class='wtf'/>
+              <br class='wtf'/>
+        
+              {% if not user.is_authenticated %}
+              <li><a href='/signin'>Login</a></li> <br class="wtf">
+              {% endif %}
+              {% if user.is_authenticated %}
+              <li><a href='/signout'>Logout</a></li> <br class="wtf">
+              {% comment %} <li><a href="/profile">Profile</a></li> <br class="wtf">  {% endcomment %}
+        {% endif %}
+      </ul>
+      {% comment %} <ul class="social js-clone-nav">
+        <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+        </svg> 
+      </li>
+             <li><a href="#"><span class="icon-facebook"></span></a></li>
+        <li><a href="#"><span class="icon-twitter"></span></a></li>
+        <li><a href="#"><span class="icon-instagram"></span></a></li>
+      </ul> {% endcomment %}
+    </div>
+  </header> 
+  
+  <main class="main-content">
+    <div class="container-fluid photos">
+      <div class="row align-items-stretch">
+        
+        {% comment %} {% for i in n %} {% endcomment %}
+        {% comment %} <h1>{{details.0}}</h1> {% endcomment %}
+       
+        <div class="col-6 col-md-6 col-lg-8" data-aos="fade-up">
+          <a href="{{redirects.0}}" class="d-block photo-item">
+            <img src="{{img_urls.0}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.0}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.0}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.0}}</span></strong>
+            </div>
+          </div>
+          </a>
+        </div> 
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <a href="{{redirects.1}}" class="d-block photo-item">
+            <img src="{{img_urls.1}}" alt="Image" class="img-fluid">
+            <h6  style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.1}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.1}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.1}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+
+         <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up">
+          <a href="{{redirects.2}}" class="d-block photo-item">
+            <img src="{{img_urls.2}}" alt="Image" class="img-fluid">
+            <h6  style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.2}} </h6>
+
+            <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.2}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.2}}</span></strong>
+            </div>
+          </a>
+        </div> 
+        <div class="col-6 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <a id='golink' href="{{redirects.3}}"class="d-block photo-item">
+            <img src="{{img_urls.3}}" alt="Image" class="img-fluid">
+            <h6  style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.3}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.3}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.3}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <a href="{{redirects.4}}" class="d-block photo-item">
+            <img src="{{img_urls.4}}" alt="Image" class="img-fluid">
+            {% comment %} <p class='mobile'>{{titles.4}}</p> {% endcomment %}
+            <h6  style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.4}} </h6>
+            
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+                {% comment %} <h3 class="heading">{{titles.4}}</h3> {% endcomment %}
+                <strong><span style="font-size:15px;" class="meta">{{descriptions.4}}</span></strong>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        
+        
+        {% comment %} <div class="col-6 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="">
+          <a href="{{redirects.5}}" class="d-block photo-item">
+            <img src="{{img_urls.5}}" alt="Image" class="img-fluid">
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+                <h3 class="heading">{{titles.5}}</h3>
+                <span class="meta">{{descriptions.5}}</span>
+              </div>
+            </div>
+          </a>
+        </div> {% endcomment %}
+        
+        <div class="col-6 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="">
+          <a id='golink' href="{{redirects.5}}" class="d-block photo-item">
+            <img src="{{img_urls.5}}" alt="Image" class="img-fluid">
+            
+            {% comment %} <p class='mobile'>{{titles.5}}</p> {% endcomment %}
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.5}} </h6>
+            
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+                {% comment %} <h3 class="heading">{{titles.5}}</h3> {% endcomment %}
+                <strong><span style="font-size:15px;" class="meta">{{descriptions.5}}</span></strong>
+              </div>
+            </div>
+          </a>
+      </div>
+        <div class="col-6 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <a href="{{redirects.6}}" class="d-block photo-item">
+            <img src="{{img_urls.6}}" alt="Image" class="img-fluid">
+            <h6  style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.6}} </h6>
+
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.6}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.6}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+
+
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="">
+          <a href="{{redirects.7}}" class="d-block photo-item">
+            <img src="{{img_urls.7}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.7}} </h6>
+
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.7}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.7}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <a href="{{redirects.8}}" class="d-block photo-item">
+            <img src="{{img_urls.8}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.8}} </h6>
+
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.8}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.8}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.9}}" class="d-block photo-item">
+            <img src="{{img_urls.9}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.9}} </h6>
+
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.9}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.9}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.10}}" class="d-block photo-item">
+            <img src="{{img_urls.10}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.10}} </h6>
+
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.10}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.10}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.11}}" class="d-block photo-item">
+            <img src="{{img_urls.11}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.11}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.11}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.11}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.12}}" class="d-block photo-item">
+            <img src="{{img_urls.12}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.12}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.12}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.12}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.13}}" class="d-block photo-item">
+            <img src="{{img_urls.13}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.13}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.13}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.13}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.14}}" class="d-block photo-item">
+            <img src="{{img_urls.14}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.14}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.14}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.14}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.15}}" class="d-block photo-item">
+            <img src="{{img_urls.15}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.15}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.15}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.15}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.16}}" class="d-block photo-item">
+            <img src="{{img_urls.16}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.16}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.16}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.16}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.17}}" class="d-block photo-item">
+            <img src="{{img_urls.17}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.17}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.17}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.17}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.18}}" class="d-block photo-item">
+            <img src="{{img_urls.18}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.18}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.18}}</h3> {% endcomment %}
+              <strong><span style="font-size:15px;" class="meta">{{descriptions.18}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="{{redirects.19}}" class="d-block photo-item">
+            <img src="{{img_urls.19}}" alt="Image" class="img-fluid">
+            <h6 style="position:absolute; bottom: 40px; left: 20px; background-color: rgba(80, 80, 80, 0.1); color: white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"> {{titles.19}} </h6>
+
+            <div class="photo-text-more">
+              <div class="photo-text-more">
+              {% comment %} <h3 class="heading">{{titles.19}}</h3> {% endcomment %}
+              <strong> <span style="font-size:15px;" class="meta">{{descriptions.19}}</span></strong>
+            </div>
+            </div>
+          </a>
+        </div>
+        {% comment %} {% endfor   %} {% endcomment %}
+
+
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center py-5">
+         
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div> <!-- .site-wrap -->
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reset</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/style.css' %}">
+	<link rel="shortcut icon" href="/assets/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="{% static 'login/img/favicon-1.ico' %}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/d9a0aff236.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="{% static 'login/img/post.svg' %}" style="max-width:100%;height:auto;">
+		</div>
+		<div class="login-content">
+            <form class="form" method="post">
+				{% csrf_token %}
+				<img src="{% static 'login/img/logo.png' %}">
+				<h3 class="title-pwd">Password Reset</h3>
+           		<p class="form__text">
+					Forgot your password?
+				</p>
+				<p class="form__text">
+					Enter your email address below, and we'll email instructions for setting a new one.
+				</p>
+				<div class="input-div three">
+					<div class="i-two">
+						<i class="fa-solid fa-envelope"></i>
+					</div>
+					<div class="div-two">
+							<h5>Email Address</h5>
+							<input type="email" class="input" name="email" required>
+					</div>
+					{% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert.dismissible fade show" role=""alert>
+                    <span style="color:red;">{{ message }}</span>
+                    </div>
+              {% endfor %}
+				</div>
+				<input type="submit" class="btn" value="Reset my Password">
+			</form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'login/js/main.js' %}"></script>
+</body>
+</html>
